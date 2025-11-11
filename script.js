@@ -4,7 +4,7 @@
 // Detecta ambiente (localhost ou produção)
 const API_BASE_URL = window.location.hostname === 'localhost'
   ? 'http://localhost:7000'
-  : window.location.origin;
+  : 'https://conversor-moedas-api.onrender.com';
 
 // Estado simples
 let currencies = [];
