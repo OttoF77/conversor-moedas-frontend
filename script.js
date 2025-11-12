@@ -184,7 +184,7 @@ async function loadHistory() {
     try {
         historyContent.innerHTML = '<p class="loading">Carregando histórico...</p>';
         
-        const response = await fetch(`${API_BASE_URL}/history?limit=20`);
+        const response = await fetch(`${API_BASE_URL}/api/history?limit=20`);
         
         if (!response.ok) {
             throw new Error(`Erro ${response.status}: ${response.statusText}`);
