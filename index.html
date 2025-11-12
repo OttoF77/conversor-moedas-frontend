@@ -23,6 +23,18 @@
             <p class="subtitle">Oracle ONE - Desafio Java</p>
         </header>
 
+        <!-- Seção de Histórico -->
+        <section class="history-section" id="historySection">
+            <h2>📊 Histórico de Conversões</h2>
+            <div class="history-controls">
+                <button id="toggleHistory" class="btn-secondary">Ver Histórico</button>
+                <button id="refreshHistory" class="btn-secondary" style="display: none;">Atualizar</button>
+            </div>
+            <div id="historyContent" class="history-content" style="display: none;">
+                <p class="loading">Carregando histórico...</p>
+            </div>
+        </section>
+        
         <main class="converter-card">
             <!-- Formulário principal -->
             <form id="converterForm">

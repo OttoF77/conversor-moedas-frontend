@@ -4,7 +4,7 @@
 // Detecta ambiente (localhost ou produção)
 const API_BASE_URL = window.location.hostname === 'localhost'
   ? 'http://localhost:7000'
-  : 'https://conversor-moedas-api.onrender.com';
+  : window.location.origin;
 
 // Estado simples
 let currencies = [];
@@ -150,91 +150,3 @@ if (document.readyState === 'loading') {
   init();
 }
 
-// ===========================
-// Histórico de Conversões
-// ===========================
-
-const toggleHistoryBtn = document.getElementById('toggleHistory');
-const refreshHistoryBtn = document.getElementById('refreshHistory');
-const historyContent = document.getElementById('historyContent');
-
-let historyVisible = false;
-
-// Toggle histórico
-toggleHistoryBtn.addEventListener('click', () => {
-    historyVisible = !historyVisible;
-    
-    if (historyVisible) {
-        historyContent.style.display = 'block';
-        refreshHistoryBtn.style.display = 'inline-block';
-        toggleHistoryBtn.textContent = 'Ocultar Histórico';
-        loadHistory();
-    } else {
-        historyContent.style.display = 'none';
-        refreshHistoryBtn.style.display = 'none';
-        toggleHistoryBtn.textContent = 'Ver Histórico';
-    }
-});
-
-// Atualizar histórico
-refreshHistoryBtn.addEventListener('click', loadHistory);
-
-// Carregar histórico do backend
-async function loadHistory() {
-    try {
-        historyContent.innerHTML = '<p class="loading">Carregando histórico...</p>';
-        
-        const response = await fetch(`${API_BASE_URL}/history?limit=20`);
-        
-        if (!response.ok) {
-            throw new Error(`Erro ${response.status}: ${response.statusText}`);
-        }
-        
-        const data = await response.json();
-        
-        if (!data.history || data.history.length === 0) {
-            historyContent.innerHTML = '<p class="history-empty">📭 Nenhuma conversão realizada ainda</p>';
-            return;
-        }
-        
-        // Renderizar histórico (mais recente primeiro)
-        const historyHTML = data.history
-            .reverse()
-            .map(item => `
-                <div class="history-item">
-                    <div class="history-item-header">
-                        <span class="history-conversion">
-                            ${item.amount.toFixed(2)} ${item.from} → ${item.result.toFixed(2)} ${item.to}
-                        </span>
-                        <span class="history-timestamp">🕒 ${item.timestamp}</span>
-                    </div>
-                    <div class="history-details">
-                        <span>Taxa: ${item.rate.toFixed(4)}</span>
-                    </div>
-                </div>
-            `)
-            .join('');
-        
-        historyContent.innerHTML = historyHTML;
-        
-    } catch (error) {
-        console.error('Erro ao carregar histórico:', error);
-        historyContent.innerHTML = `
-            <p class="history-empty">
-                ⚠️ Erro ao carregar histórico: ${error.message}
-            </p>
-        `;
-    }
-}
-
-// Atualizar histórico automaticamente após cada conversão bem-sucedida
-// (Adicione isso na função convertCurrency, após exibir o resultado)
-const originalConvertBtn = convertBtn.onclick;
-convertBtn.onclick = async () => {
-    await originalConvertBtn();
-    
-    // Se o histórico estiver visível, atualiza
-    if (historyVisible) {
-        setTimeout(loadHistory, 500);
-    }
-};
