@@ -108,10 +108,6 @@ Layout adaptado para telas pequenas, botões acessíveis.
 |----------------------|--------------------|--------------------------|
 | ![cm01 - visualização inicial](img/cm01.png) | ![cm02 - convertendo moedas](img/cm02.png) | ![cm03 - histórico de conversões](img/cm03.png) |
 
-Legenda:
-1. cm01 - visualização inicial
-2. cm02 - convertendo moedas
-3. cm03 - histórico de conversões
 
 ## 🔧 Desenvolvimento Local
 
