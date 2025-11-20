@@ -102,6 +102,17 @@ Interface limpa com gradiente roxo e campos bem espaçados.
 ### Mobile
 Layout adaptado para telas pequenas, botões acessíveis.
 
+### Exemplos de Uso
+
+| Visualização Inicial | Convertendo Moedas | Histórico de Conversões |
+|----------------------|--------------------|--------------------------|
+| ![cm01 - visualização inicial](img/cm01.png) | ![cm02 - convertendo moedas](img/cm02.png) | ![cm03 - histórico de conversões](img/cm03.png) |
+
+Legenda:
+1. cm01 - visualização inicial
+2. cm02 - convertendo moedas
+3. cm03 - histórico de conversões
+
 ## 🔧 Desenvolvimento Local
 
 ### Opção 1: Live Server (VS Code)
@@ -156,7 +167,7 @@ Projeto educacional desenvolvido para o programa **Oracle Next Education (ONE)**
 
 - 🔌 **Backend (API):** https://github.com/OttoF77/conversor-moedas
 - 🌐 **Frontend Live:** https://ottof77.github.io/conversor-moedas-frontend
-- 👨‍💻 **Autor:** [Otto Ferreira](https://github.com/OttoF77)
+- 👨‍💻 **Autor:** [Otto Freitag](https://github.com/OttoF77)
 - 🎓 **Programa:** Oracle ONE + Alura
 
 ---
@@ -165,6 +176,6 @@ Projeto educacional desenvolvido para o programa **Oracle Next Education (ONE)**
 
 **⭐ Se este projeto te ajudou, deixe uma estrela! ⭐**
 
-Made with 💜 and ☕ by [Otto Ferreira](https://github.com/OttoF77)
+Made with 💜 and ☕ by [Otto Freitag](https://github.com/OttoF77)
 
 </div>
